@@ -12,74 +12,70 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 require("packer").startup(function(use)
-	-- My plugins here
 	use({ "wbthomason/packer.nvim" })
 
-	-- THEME
-	use({ "EdenEast/nightfox.nvim" })
-	use({ "nvim-lualine/lualine.nvim" })
-	use({ "kyazdani42/nvim-web-devicons" })
-	use({ "romgrk/barbar.nvim" })
+	-- UI
+	use({ "EdenEast/nightfox.nvim", lock = true, commit = "6585499" })
+	use({ "nvim-lualine/lualine.nvim", lock = true, commit = "dcd194f" })
+	use({ "kyazdani42/nvim-web-devicons", lock = true, commit = "9061e2d"})
+	use({ "romgrk/barbar.nvim", lock = true, commit = "f827ad6" })
 
 	-- IDE
-	use({ "onsails/lspkind-nvim" })
-	use({ "nvim-treesitter/nvim-treesitter" })
-	use({ "honza/vim-snippets" })
-	use({ "SirVer/ultisnips" })
-	use({ "hrsh7th/nvim-cmp" })
-	use({ "hrsh7th/cmp-nvim-lsp" })
-	use({ "hrsh7th/cmp-nvim-lua" })
-	use({ "hrsh7th/cmp-path" })
-	use({ "quangnguyen30192/cmp-nvim-ultisnips" })
+	use({ "onsails/lspkind-nvim", lock = true })
+	use({ "nvim-treesitter/nvim-treesitter", lock = true, commit = "b9bcbf8" })
+	use({ "honza/vim-snippets", lock = true, commit = "b47c2e3" })
+	use({ "SirVer/ultisnips", lock = true })
+	use({ "hrsh7th/nvim-cmp", lock = true })
+	use({ "hrsh7th/cmp-nvim-lsp", lock = true })
+	use({ "hrsh7th/cmp-nvim-lua", lock = true })
+	use({ "hrsh7th/cmp-path", lock = true })
+	use({ "quangnguyen30192/cmp-nvim-ultisnips", lock = true })
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
+        lock = true
 	})
 
-	use({ "neovim/nvim-lspconfig" })
-	use({ "ray-x/lsp_signature.nvim" })
+	use({ "neovim/nvim-lspconfig", lock = true })
+	use({ "ray-x/lsp_signature.nvim", lock = true })
 
-	use({ "nvim-treesitter/playground" })
+	use({ "nvim-treesitter/playground", lock = true })
 
 	-- file tree browser
-	use({ "kyazdani42/nvim-tree.lua" })
+	use({ "kyazdani42/nvim-tree.lua", lock = true })
 
 	-- TELESCOPE
-	use({ "nvim-lua/plenary.nvim" })
-	use({ "fhill2/telescope-ultisnips.nvim" })
+	use({ "nvim-lua/plenary.nvim", lock = true })
+	use({ "fhill2/telescope-ultisnips.nvim", lock = true })
 
-	use({ "nvim-telescope/telescope.nvim" })
+	use({ "nvim-telescope/telescope.nvim", lock = true })
 
 	-- STARTUP SCREEN
-	use({ "glepnir/dashboard-nvim", commit = "bd7163f" })
+	use({ "glepnir/dashboard-nvim", lock = true, commit = "bd7163f" })
 
 	-- FORMATTER
-	use({ "mhartington/formatter.nvim" })
+	use({ "mhartington/formatter.nvim", lock = true })
 
 	-- GIT SUPERPOWER
-	use({ "tpope/vim-fugitive" })
-	use({ "lewis6991/gitsigns.nvim" })
+	use({ "tpope/vim-fugitive", lock = true })
+	use({ "lewis6991/gitsigns.nvim", lock = true })
 
 	-- COLOR UTILS
-	-- use { 'norcalli/nvim-colorizer.lua' }
-	use({ "max397574/colortils.nvim" })
+	use({ "max397574/colortils.nvim", lock = true })
 
 	-- COMMENTARY PLUGIN
-	use({ "tpope/vim-commentary" })
+	use({ "tpope/vim-commentary", lock = true })
 
 	-- BRACKET & SURROUND PLUGIN
-	use({ "jiangmiao/auto-pairs" })
-	use({ "tpope/vim-surround" })
-
-	-- REMOTE EDITING
-	use({ "chipsenkbeil/distant.nvim" })
+	use({ "jiangmiao/auto-pairs", lock = true })
+	use({ "tpope/vim-surround", lock = true })
 
 	-- INDENT BLANKLINE
-	use({ "lukas-reineke/indent-blankline.nvim" })
+	use({ "lukas-reineke/indent-blankline.nvim", lock = true })
 
 	-- GO utils
-	use({ "ray-x/go.nvim" })
-	use({ "ray-x/guihua.lua" })
+	use({ "ray-x/go.nvim", lock = true })
+	use({ "ray-x/guihua.lua", lock = true })
 	use({
 		"edolphin-ydf/goimpl.nvim",
 		requires = {
@@ -88,31 +84,24 @@ require("packer").startup(function(use)
 			{ "nvim-telescope/telescope.nvim" },
 			{ "nvim-treesitter/nvim-treesitter" },
 		},
+        lock = true
 	})
 
 	-- FLUTTER
-	use({ "akinsho/flutter-tools.nvim" })
-
-	-- TOGGLETERM
-	use({
-		"akinsho/toggleterm.nvim",
-		lock = true,
-	})
+	use({ "akinsho/flutter-tools.nvim", lock = true })
 
 	-- DEBUGGER
-	use({ "mfussenegger/nvim-dap" })
-	use({ "leoluz/nvim-dap-go" })
+	use({ "mfussenegger/nvim-dap", lock = true })
+	use({ "leoluz/nvim-dap-go", lock = true })
 	use({
 		"rcarriga/nvim-dap-ui",
 		requires = { "mfussenegger/nvim-dap" },
+        lock = true,
 	})
 
 	-- KITTY FILETYPE PLUGIN
-	use({ "fladson/vim-kitty" })
+	use({ "fladson/vim-kitty", lock = true })
 
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	if packer_bootstrap then
-		require("packer").sync()
-	end
 end)
+
+require("packer").sync()

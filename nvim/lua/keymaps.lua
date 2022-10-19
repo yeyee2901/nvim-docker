@@ -146,7 +146,7 @@ NORMAL_MODE_MAPPING = {
 	{ ["<Leader>Ga"] = ":GoImport<CR>" },
 	{ ["<Leader>Gm"] = ":GoModTidy<CR>" },
 	{ ["<Leader>GT"] = ":GoTestSum<CR>" },
-	{ ["<Leader>GI"] = require("telescope").extensions.goimpl.goimpl },
+	{ ["<Leader>GI"] = ":lua require('telescope').extensions.goimpl.goimpl<CR>" },
 
 	-- PLUGIN: Flutter related tools
 	{ ["<Leader>Fo"] = ":FlutterOutlineToggle<CR>" },

@@ -1,4 +1,12 @@
 require("user.plugins.packer")
+
+-- DO NOT LOAD PLUGINS IF EVEN ONE IS NOT INSTALLED (for docker)
+local ok, _ = pcall(require, "telescope")
+
+if not ok then
+    return
+end
+
 require("user.plugins.telescope")
 require("user.plugins.golang-tools")
 require("user.plugins.indent-blankline")

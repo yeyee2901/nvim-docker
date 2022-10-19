@@ -1,9 +1,10 @@
-local cmp_ok, _ = pcall(require, 'cmp')
-local lsp_ok, _ = pcall(require, 'lspconfig')
-local ts_ok, _ = pcall(require, 'nvim-treesitter')
+local lsp_ok, _ = pcall(require, "lspconfig")
 
-if cmp_ok and lsp_ok and ts_ok then
-  require 'user.ide.treesitter'
-  require 'user.ide.lsp'
-  require 'user.ide.cmp'
+-- DO NOT LOAD PLUGINS IF IT'S NOT INSTALLED
+if not lsp_ok then
+	return
 end
+
+require("user.ide.treesitter")
+require("user.ide.lsp")
+require("user.ide.cmp")
