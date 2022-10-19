@@ -5,5 +5,4 @@ local nvim_tree_ok, _ = pcall(require, 'nvim-tree')
 if theme_ok and lualine_ok and nvim_tree_ok then
   require 'user.theme.color'
   require 'user.theme.lualine'
-  require 'user.theme.nvim-tree'
 end
