@@ -15,16 +15,11 @@ require('packer').startup(function(use)
   -- My plugins here
   use { 'wbthomason/packer.nvim' }
 
-  -- DISCORD
-  use { 'andweeb/presence.nvim' }
-
   -- THEME
   use { 'EdenEast/nightfox.nvim' }
-  use { 'olimorris/onedarkpro.nvim' }
   use { 'nvim-lualine/lualine.nvim' }
   use { 'kyazdani42/nvim-web-devicons' }
   use { 'romgrk/barbar.nvim' }
-  use { 'kyazdani42/nvim-tree.lua' }
 
   -- IDE
   use { 'onsails/lspkind-nvim' }
@@ -46,14 +41,17 @@ require('packer').startup(function(use)
 
   use { 'nvim-treesitter/playground' }
 
+  -- file tree browser
+  use { 'kyazdani42/nvim-tree.lua' }
+
   -- TELESCOPE
   use { 'nvim-lua/plenary.nvim' }
   use { 'fhill2/telescope-ultisnips.nvim' }
 
   use { 'nvim-telescope/telescope.nvim' }
 
-  -- STARTIFY
-  use { 'mhinz/vim-startify' }
+  -- STARTUP SCREEN
+  use { 'glepnir/dashboard-nvim', commit = 'bd7163f' }
 
   -- FORMATTER
   use { 'mhartington/formatter.nvim' }
@@ -118,5 +116,3 @@ require('packer').startup(function(use)
     require('packer').sync()
   end
 end)
-
-require 'user.plugins.activate'
