@@ -1,0 +1,11 @@
+snippet proto_bare "Barebone code"
+syntax = "$1";
+
+package ${2:model_name.version};
+
+option go_package = "${3:module_name_sesuai_gomod}/gen/go/${4:model_name}/${5:version};${6:model_name}pb";
+
+message ${7:MODEL_NAME} {
+	${8:type field_name = tag_num};
+}
+endsnippet

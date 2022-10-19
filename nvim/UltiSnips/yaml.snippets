@@ -1,0 +1,19 @@
+
+snippet buf_yaml "File: buf.yaml"
+version: v1
+breaking:
+  use:
+    - FILE
+lint:
+  use:
+    - DEFAULT
+endsnippet
+
+snippet buf_gen_yaml "File: buf.gen.yaml"
+# documentation: https://docs.buf.build/configuration/v1/buf-gen-yaml
+version: v1
+plugins:
+  - name: go
+    out: gen/go
+    opt: paths=source_relative
+endsnippet
