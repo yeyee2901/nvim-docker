@@ -1,11 +1,11 @@
-require 'user.plugins.packer'
-require 'user.plugins.telescope'
-require 'user.plugins.golang-tools'
-require 'user.plugins.indent-blankline'
-require 'user.plugins.colortils'
-require 'user.plugins.gitsigns'
-require 'user.plugins.formatter'
-require 'user.plugins.bufferline'
-require 'user.plugins.nvim-tree'
-require 'user.plugins.dap'
-require 'user.plugins.dashboard'
+require("user.plugins.packer")
+require("user.plugins.telescope")
+require("user.plugins.golang-tools")
+require("user.plugins.indent-blankline")
+require("user.plugins.colortils")
+require("user.plugins.gitsigns")
+require("user.plugins.formatter")
+require("user.plugins.bufferline")
+require("user.plugins.nvim-tree")
+require("user.plugins.dap")
+require("user.plugins.dashboard")

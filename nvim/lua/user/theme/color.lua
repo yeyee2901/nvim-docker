@@ -39,9 +39,9 @@ require("nightfox").setup({
 	palettes = {},
 	specs = {},
 	groups = {
-    all = {
-      ["@property"] = { link = "Identifier" },   -- kayaknya authornya kelewatan satu identifier ini
-    }
+		all = {
+			["@property"] = { link = "Identifier" }, -- kayaknya authornya kelewatan satu identifier ini
+		},
 	},
 })
 

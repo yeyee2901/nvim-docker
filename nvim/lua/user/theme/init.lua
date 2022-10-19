@@ -1,2 +1,2 @@
-require 'user.theme.color'
-require 'user.theme.lualine'
+require("user.theme.color")
+require("user.theme.lualine")
