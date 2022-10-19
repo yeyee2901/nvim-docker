@@ -119,4 +119,4 @@ require('packer').startup(function(use)
   end
 end)
 
-require 'dayum.plugins.activate'
+require 'user.plugins.activate'

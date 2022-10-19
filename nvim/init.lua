@@ -12,15 +12,12 @@ require 'basic-settings'
 require 'keymaps'
 
 -- SECTION: IDE experience
-require 'dayum.ide'
+require 'user.ide'
 
 -- SECTION: PLUGINS
-require 'dayum.plugins'
+require 'user.plugins'
 
 -- SECTION: UI
-require 'dayum.theme'
+require 'user.theme'
 
 require 'autocommands'
-
--- SECTION: GLOBALS
-require 'my-globals'

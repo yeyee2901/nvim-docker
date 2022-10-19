@@ -77,4 +77,4 @@ require('nvim-treesitter.configs').setup {
   },
 }
 
-require("dayum.ide.gg-treesitter")
+require("user.ide.gg-treesitter")
