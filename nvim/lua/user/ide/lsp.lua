@@ -116,7 +116,7 @@ local custom_on_attach = function(_, _)
 end
 
 lspconfig.gopls.setup {
-  cmd = { '/home/yeyee/go/bin/gopls' },
+  cmd = { MY_HOME .. '/go/bin/gopls' },
   capabilities = capabilities_updated,
   on_attach = custom_on_attach,
 }

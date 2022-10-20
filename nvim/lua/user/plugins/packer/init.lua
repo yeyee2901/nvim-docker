@@ -103,5 +103,3 @@ require("packer").startup(function(use)
 	use({ "fladson/vim-kitty", lock = true })
 
 end)
-
-require("packer").sync()
