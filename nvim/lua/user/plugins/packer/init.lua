@@ -17,7 +17,7 @@ require("packer").startup(function(use)
 	-- UI
 	use({ "EdenEast/nightfox.nvim", lock = true, commit = "6585499" })
 	use({ "nvim-lualine/lualine.nvim", lock = true, commit = "dcd194f" })
-	use({ "kyazdani42/nvim-web-devicons", lock = true, commit = "9061e2d"})
+	use({ "kyazdani42/nvim-web-devicons", lock = true, commit = "9061e2d" })
 	use({ "romgrk/barbar.nvim", lock = true, commit = "f827ad6" })
 
 	-- IDE
@@ -33,7 +33,7 @@ require("packer").startup(function(use)
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
-        lock = true
+		lock = true,
 	})
 
 	use({ "neovim/nvim-lspconfig", lock = true })
@@ -41,7 +41,7 @@ require("packer").startup(function(use)
 
 	use({ "nvim-treesitter/playground", lock = true })
 
-	-- file tree browser
+	-- FILE TREE
 	use({ "kyazdani42/nvim-tree.lua", lock = true })
 
 	-- TELESCOPE
@@ -60,14 +60,13 @@ require("packer").startup(function(use)
 	use({ "tpope/vim-fugitive", lock = true })
 	use({ "lewis6991/gitsigns.nvim", lock = true })
 
-	-- COLOR UTILS
+	-- COLOR SELECTOR
 	use({ "max397574/colortils.nvim", lock = true })
 
-	-- COMMENTARY PLUGIN
+	-- COMMENT TOGGLE PLUGIN
 	use({ "tpope/vim-commentary", lock = true })
 
 	-- BRACKET & SURROUND PLUGIN
-	use({ "jiangmiao/auto-pairs", lock = true })
 	use({ "tpope/vim-surround", lock = true })
 
 	-- INDENT BLANKLINE
@@ -84,11 +83,8 @@ require("packer").startup(function(use)
 			{ "nvim-telescope/telescope.nvim" },
 			{ "nvim-treesitter/nvim-treesitter" },
 		},
-        lock = true
+		lock = true,
 	})
-
-	-- FLUTTER
-	use({ "akinsho/flutter-tools.nvim", lock = true })
 
 	-- DEBUGGER
 	use({ "mfussenegger/nvim-dap", lock = true })
@@ -96,10 +92,15 @@ require("packer").startup(function(use)
 	use({
 		"rcarriga/nvim-dap-ui",
 		requires = { "mfussenegger/nvim-dap" },
-        lock = true,
+		lock = true,
 	})
 
 	-- KITTY FILETYPE PLUGIN
 	use({ "fladson/vim-kitty", lock = true })
 
+
+    -- automatically install packer after cloning
+	if packer_bootstrap then
+		require("packer").sync()
+	end
 end)

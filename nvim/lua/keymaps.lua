@@ -16,9 +16,6 @@ VISUAL_MODE_MAPPING = {
 
 	-- DELETING MULTIPLE ROW IN SAME COLUMN (in V-BLOCK mode)
 	{ ["<BS>"] = "xgv" },
-
-	-- APPENDING ON LAST COLUMN ON (V-BLOCK MODE ONLY)
-	{ ["aa"] = "$<S-a>" },
 }
 
 INSERT_MODE_MAPPING = {
@@ -136,10 +133,6 @@ NORMAL_MODE_MAPPING = {
 	{ ["<Leader>la"] = "<cmd>Lspsaga code_action<CR>" },
 	{ ["<Leader>lr"] = "<cmd>Lspsaga lsp_finder<CR>" },
 
-	-- PLUGIN: ToggleTerm
-	{ ["TT"] = "<cmd>ToggleTerm<CR>" },
-	{ ["TG"] = ":ToggleTerm<CR>lazygit<CR>" },
-
 	-- PLUGIN: Various golang related tools
 	{ ["<Leader>Gt"] = ":GoAddTag<CR>" },
 	{ ["<Leader>Gi"] = ":GoImport<CR>" },
@@ -147,9 +140,6 @@ NORMAL_MODE_MAPPING = {
 	{ ["<Leader>Gm"] = ":GoModTidy<CR>" },
 	{ ["<Leader>GT"] = ":GoTestSum<CR>" },
 	{ ["<Leader>GI"] = ":lua require('telescope').extensions.goimpl.goimpl<CR>" },
-
-	-- PLUGIN: Flutter related tools
-	{ ["<Leader>Fo"] = ":FlutterOutlineToggle<CR>" },
 
 	-- PLUGIN: nvim dap (debugger)
 	{ ["<Leader>dr"] = '<cmd>lua require("dap").run()<CR>' },

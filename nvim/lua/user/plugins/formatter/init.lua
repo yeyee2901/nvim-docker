@@ -35,22 +35,6 @@ local autopep = function()
 	}
 end
 
-local stylua = function()
-	return {
-		exe = "stylua",
-		stdin = false,
-		args = { vim.api.nvim_buf_get_name(0) },
-	}
-end
-
-local rustfmt = function()
-	return {
-		exe = "rustfmt",
-		stdin = false,
-		args = { vim.api.nvim_buf_get_name(0) },
-	}
-end
-
 local gofmt = function()
 	return {
 		exe = "gofmt",
@@ -63,14 +47,6 @@ local protobuf = function()
 	return {
 		exe = "clang-format",
 		stdin = true,
-		args = { vim.api.nvim_buf_get_name(0) },
-	}
-end
-
-local dart = function()
-	return {
-		exe = "flutter format",
-		stdin = false,
 		args = { vim.api.nvim_buf_get_name(0) },
 	}
 end
@@ -90,10 +66,7 @@ require("formatter").setup({
 		c = { clang_format },
 		cpp = { clang_format },
 		python = { autopep },
-		rust = { rustfmt },
 		go = { gofmt },
-		lua = { stylua },
 		proto = { protobuf },
-		dart = { dart },
 	},
 })

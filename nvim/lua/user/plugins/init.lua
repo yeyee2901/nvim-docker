@@ -4,7 +4,7 @@ require("user.plugins.packer")
 local ok, _ = pcall(require, "telescope")
 
 if not ok then
-    return
+	return
 end
 
 require("user.plugins.telescope")

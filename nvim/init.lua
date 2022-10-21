@@ -4,20 +4,21 @@
 -- | |\  | | |___  | |_| |   \ V /    | |  | |  | |
 -- |_| \_| |_____|  \___/     \_/    |___| |_|  |_|
 --
+-- author: yeyee2901
 
 -- SECTION: BASIC SETTINGS
-require 'basic-settings'
+require("basic-settings")
 
 -- SECTION: KEYMAPS
-require 'keymaps'
+require("keymaps")
 
 -- SECTION: IDE experience
-require 'user.ide'
+require("user.ide")
 
 -- SECTION: PLUGINS
-require 'user.plugins'
+require("user.plugins")
 
 -- SECTION: UI
-require 'user.theme'
+require("user.theme")
 
-require 'autocommands'
+require("autocommands")

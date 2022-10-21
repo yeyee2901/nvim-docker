@@ -64,9 +64,3 @@ require("telescope").setup({
 })
 
 require("telescope").load_extension("ultisnips")
-
--- check for flutter extension
-local flutter_ok, _ = pcall(require, "flutter")
-
-require("telescope").load_extension("flutter")
-vim.keymap.set("n", "<leader>tF", require("telescope").extensions.flutter.commands)
