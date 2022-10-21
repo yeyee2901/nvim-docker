@@ -6,6 +6,7 @@
 alias ls='ls --color=auto'
 alias la="ls -lah"
 alias ll="ls -lh"
+alias vi="nvim"
 
 # Go stuffs
 export GOPATH=$HOME/go
