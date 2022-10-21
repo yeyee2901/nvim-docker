@@ -4,6 +4,54 @@ My neovim configuration, dockerized. I'm making this based on this consideration
 2. **Reproduction**: I'm encouraged to have a reproducible neovim configuration across multiple devices, since I plan to buy a gaming PC (I code on my Arch Linux laptop). I plan to make that PC as a secondary coding workstation when I'm working from home, and I don't want to go through the hassle of reconfiguring everything from the start. VM? Well, I considered that too, but that doesn't leverage the "minimal effort" required to reproduce my configurations. I want my neovim config reproduced with a single build command.
 3. The second point also applies to anyone that wants to have my config file, but are afraid to clutter their system with the dependencies.
 
+# Features
+- Colorscheme using [nightfox](https:/github.com/EdenEast/nightfox.nvim), treesitter based.
+- Native LSP (no install helper). Configured LSP:
+    - `gopls` (Golang)
+    - `astro` (Astro JS)
+    - `tsserver` (Javascript, Typescript)
+    - `eslint` (Javascript, Typescript, etc)
+    - `intelephense` (PHP)
+    - `ccls` (C/C++)
+    - `pyright` (Python)
+- Improved LSP experience using [lspsaga](https://github.com/glepnir/lspsaga.nvim) , [LSP signature](https://github.com/ray-x/lsp_signature.nvim)
+- Debugging with [nvim-dap](https://github.com/mhfussenegger/nvim-dap)
+- Autocompletion engine using [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) with VSCode like icons using [lspkind](https://github.com/onsails/lspkind.nvim).
+- Extendable snippet engine using [UltiSnips](https://github.com/SirVer/ultisnips).
+- Treesitter setup, installed parsers:
+    - `go` 
+    - `html` 
+    - `css`
+    - `javascript` 
+    - `typescript`
+    - `tsx` 
+    - `astro` 
+    - `python` 
+    - `json` 
+    - `yaml` 
+    - `query` 
+    - `proto` (protobuf files)
+    - `comment` (`TODO:`, `WARN:`, comment highlighting)
+- [Lualine](https://github.com/nvim-lualine/lualine.nvim) for statusline, using pre-made config `evil lualine`.
+- [Barbar](https://github.com/romgrk/barbar.nvim) handling vim buffers turned into handling tabs.
+- [Nvim-Tree](https://github.com/kyazdani42/nvim-tree.lua) for file tree viewer.
+- [Telescope superpower](https://github.com/nvim-telescope/telescope.nvim)
+- [Gitsigns](https://github.com/lewis6991/gitsigns.nvim) for git integration.
+- [Formatter](https://github.com/mhartington/formatter.nvim) , with configured formatter:
+    - Astro JS (`prettier`)
+    - HTML/CSS (`prettier`)
+    - JSON (`prettier`)
+    - Markdown (`prettier`)
+    - Javascript / Typescript (`prettier`)
+    - React / React Typescript (`prettier`)
+    - C/C++ (`clang-format`)
+    - Python (`autopep8`)
+    - Golang (`gofmt` & `gofumpt`)
+    - Proto (`clang-format`)
+- [Vim Commentary](https://github.com/tpope/vim-commentary) toggling comments, made easy.
+- [Vim Surround](https://github.com/tpope/vim-surround) surrounding something with tags, parantheses, curly braces, etc, made easy.
+- [Colortils](https://github.com/max397574) color selector, useful for working with CSS.
+
 # Pulling The Docker Image
 Run:
 ```bash
