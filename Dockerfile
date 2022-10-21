@@ -1,88 +1,120 @@
-FROM ubuntu:22.04
+FROM alpine:latest
 
 LABEL maintainer="yeyee2901"
 LABEL description="My neovim config, dockerized"
 LABEL version="1.0"
 
-# Variables
+###############
+## VARIABLES ##
+###############
+ARG APK_PACKAGES="\
+    autoconf automake cmake curl g++ gcc gettext gettext-dev \
+    git libtool make ninja openssl pkgconfig unzip binutils \
+    nodejs npm yarn grep python3 python3-dev py3-pip bash curl \
+    go ccls clang clang-extra-tools \
+"
 ARG GOLANG_VERSION="1.19.2"
 ARG GOLANG_ARCH="amd64"
+ARG GOLANG_INSTALL="\
+    golang.org/x/tools/gopls@latest \
+"
+ARG PIP_INSTALL="\
+    neovim autopep8 \
+"
+ARG NPM_INSTALL="\
+    vscode-langservers-extracted typescript \
+    typescript-language-server @astrojs/language-server \
+    eslint prettier pyright intelephense \
+"
+ARG NEOVIM_BRANCH="release-0.8"
+ARG NEOVIM_TREESITTER_PARSERS="\
+        go html css javascript typescript \
+        tsx astro python json yaml query proto \
+        comment \
+"
 
-# Update OS
-RUN apt update -y && apt upgrade -y
 
-# Install dependencies
-RUN apt install -y \
-    bash \
-    curl \
-    git \
-    grep \
-    gcc \
-    nodejs \
-    python3 \
-    python3-dev \
-    python3-pip
 
-# Install python packages
-RUN pip3 install --upgrade pip neovim
+###############
+## UPDATE OS ##
+###############
+RUN apk update && apk upgrade
 
-# Move the config files
+
+################
+## NATIVE PKG ##
+################
+RUN apk add ${APK_PACKAGES} && rm -rf /var/cache/apk/*
+
+
+###############
+# NVIM CONFIG #
+###############
 COPY nvim /root/.config/nvim
 
-# CHANGE WORKDIR ----------------------------------------------
+
+
+
+##############################################
+#               CHANGE WORKDIR               #
+##############################################
 WORKDIR /root
 
-# Install neovim
-RUN curl --http1.1 -SL https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.tar.gz -o nvim-linux64.tar.gz
-RUN tar -xvf nvim-linux64.tar.gz
 
-# Install packer (neovim plugin manager)
-RUN git clone --depth 1 \
-    https://github.com/wbthomason/packer.nvim \
-    /root/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-# Install all plugins
-RUN /root/nvim-linux64/bin/nvim --headless -c "PackerSync" -c "autocmd User PackerComplete qall"
-RUN /root/nvim-linux64/bin/nvim --headless -c \
-    "TSInstallSync \
-        go \
-        html \
-        css \
-        javascript \
-        typescript \
-        tsx \
-        astro \
-        python \
-        json \
-        yaml \
-        query \
-        proto \
-        comment" -c "qall"
 
-# FOR OTHER APP INSTALLATIONS 
-RUN mkdir apps
+##################
+# INSTALL NEOVIM #
+##################
+RUN git clone https://github.com/neovim/neovim.git neovim && \
+  cd neovim && \
+  git fetch --all --tags -f && \
+  git checkout ${NEOVIM_BRANCH} && \
+  make CMAKE_BUILD_TYPE=Release && \
+  make install && \
+  cd ..
 
-# INSTALL GOLANG
-RUN curl -OL "https://golang.org/dl/go${GOLANG_VERSION}.linux-${GOLANG_ARCH}.tar.gz"
-RUN tar -xvf "go${GOLANG_VERSION}.linux-${GOLANG_ARCH}.tar.gz"
-RUN chown -R root:root ./go
-RUN mv -v go /root/apps/golang
+# Inject all plugins
+# - I don't know why but packer does not load on first neovim launch
+# the second one always loads
+RUN nvim --headless -c "qall"
 
-# COPY BASH CONFIG FILE 
-# contains PATH, aliases, etc
-# from this point on, run using bash
-COPY .bashrc /root/.bashrc
+# - packer has an install complete event, we can use that to detect
+# when to exit, otherwise neovim will exit immediately since packer
+# runs asynchronously
+RUN nvim --headless \
+    -c "autocmd User PackerComplete qall" \ 
+    -c "PackerSync"
 
-# Install language servers
-RUN /root/apps/golang/bin/go install golang.org/x/tools/gopls@latest
+# Install treesitter parsers
+RUN nvim --headless \
+    -c "TSInstallSync ${NEOVIM_TREESITTER_PARSERS}" \
+    -c "qall"
 
-# configure git so it doesn't yell at us
+
+##########################
+#    LSP & DEV TOOLS     #
+##########################
+RUN go install ${GOLANG_INSTALL}
+RUN npm i -g --omit=dev ${NPM_INSTALL}
+RUN pip3 install ${PIP_INSTALL}
+
+
+###################
+#   GIT CONFIG    #
+###################
+# so it doesn't yell at us for being root
 RUN git config --global --add safe.directory /root/workspace
 
-# CHANGE WORKDIR ----------------------------------------------
+
+#########################
+# SHELL - ENV - ALIASES #
+#########################
+COPY .bashrc .bashrc
+
+
+################
+#   LAUNCH 🚀  #
+################
 WORKDIR /root/workspace
-
-
-
-# launch using bash
 CMD [ "/bin/bash" ]
