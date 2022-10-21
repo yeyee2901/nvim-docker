@@ -2,6 +2,7 @@
 ![image](https://user-images.githubusercontent.com/55247343/197178049-8ba20c75-9be6-4113-8eec-d7fd87ac2d95.png)
 ![image](https://user-images.githubusercontent.com/55247343/197178140-5445b53b-4a50-4805-82c0-5f083a767617.png)
 
+Terminal used: `kitty`. If you want to also match the terminal theme, you can see my [kitty.conf file](https://github.com/yeyee2901/ark-linux-dot/blob/master/.config/kitty/kitty.conf).
 
 # Yeyee's Dockerized Neovim Config
 My neovim configuration, dockerized. I'm making this based on this consideration:
