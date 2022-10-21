@@ -30,7 +30,7 @@ ARG NEOVIM_BRANCH="release-0.8"
 ARG NEOVIM_TREESITTER_PARSERS="\
         go html css javascript typescript \
         tsx astro python json yaml query proto \
-        comment \
+        comment bash \
 "
 
 
