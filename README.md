@@ -1,3 +1,8 @@
+![image](https://user-images.githubusercontent.com/55247343/197177760-acc63637-fe01-4bda-b26b-de1e2582d375.png)
+![image](https://user-images.githubusercontent.com/55247343/197178049-8ba20c75-9be6-4113-8eec-d7fd87ac2d95.png)
+![image](https://user-images.githubusercontent.com/55247343/197178140-5445b53b-4a50-4805-82c0-5f083a767617.png)
+
+
 # Yeyee's Dockerized Neovim Config
 My neovim configuration, dockerized. I'm making this based on this consideration:
 1. **Breaking Changes**: I'm updating my plugins, and suddenly my [treesitter](https://github.com/nvim-treesitter/nvim-treesitter) syntax highlighting borked. Apparently they made a breaking change by changing the whole TS highlighting group (`TSGroup` ➜  `@group`). Which breaks every colorscheme that use TS as their highlighting group. So, based on this consideration, I plan to LOCK EVERYTHING on a single commit (which I currently used & known to be stable, as of `2022-10-19`)
@@ -5,6 +10,7 @@ My neovim configuration, dockerized. I'm making this based on this consideration
 3. The second point also applies to anyone that wants to have my config file, but are afraid to clutter their system with the dependencies.
 
 # Features
+- Docker image based on Alpine Linux for minimal footprint, though it already hits 2 GB of storage, the neovim itself is small in size, but the development tools are not.
 - Colorscheme using [nightfox](https:/github.com/EdenEast/nightfox.nvim), treesitter based.
 - Native LSP (no install helper). Configured LSP:
     - `gopls` (Golang)
