@@ -63,6 +63,9 @@ My neovim configuration, dockerized. I'm making this based on this consideration
 Run:
 ```bash
 docker pull yeyee2901/nvim-docker:1.0
+
+# stable version with commit locks
+docker pull yeyee2901/nvim-docker:1.0-stable
 ```
 Or, you can visit the dockerhub [directly](https://hub.docker.com/repository/docker/yeyee2901/nvim-docker) if you want to take a look.
 
