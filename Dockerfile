@@ -11,7 +11,7 @@ ARG APK_PACKAGES="\
     autoconf automake cmake curl g++ gcc gettext gettext-dev \
     git libtool make ninja openssl pkgconfig unzip binutils \
     nodejs npm yarn grep python3 python3-dev py3-pip bash curl \
-    go ccls clang clang-extra-tools \
+    go ccls clang clang-extra-tools ripgrep \
 "
 ARG GOLANG_VERSION="1.19.2"
 ARG GOLANG_ARCH="amd64"
