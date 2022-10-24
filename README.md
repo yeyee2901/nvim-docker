@@ -71,7 +71,12 @@ Or, you can visit the dockerhub [directly](https://hub.docker.com/repository/doc
 
 # Building The Docker Image Yourself
 - First, make sure docker is installed in your system. I won't go into details on how to install this, each system has their own package manager right?
-- You can customize the neovim configuration file first, in case you want to add more plugins etc 👌
+- Pull this repo
+```bash
+git pull https://github.com/yeyee2901/nvim-docker.git
+```
+- Before building the image, you can customize the neovim configuration file first, in case you want to add more plugins etc 👌
+- Build it:
 ## Arch Based System
 ```bash
 docker build -t nvim-docker:1.0 --no-cache .
