@@ -15,9 +15,6 @@ ARG APK_PACKAGES="\
 "
 ARG GOLANG_VERSION="1.19.2"
 ARG GOLANG_ARCH="amd64"
-ARG GOLANG_INSTALL="\
-    golang.org/x/tools/gopls@latest \
-"
 ARG PIP_INSTALL="\
     neovim autopep8 \
 "
@@ -95,7 +92,10 @@ RUN nvim --headless \
 ##########################
 #    LSP & DEV TOOLS     #
 ##########################
-RUN go install ${GOLANG_INSTALL}
+RUN go install golang.org/x/tools/gopls@latest
+RUN go install github.com/fatih/gomodifytags@latest
+RUN go install github.com/josharian/impl@latest
+RUN go install github.com/ChimeraCoder/gojson/gojson@latest
 RUN npm i -g --omit=dev ${NPM_INSTALL}
 RUN pip3 install ${PIP_INSTALL}
 
