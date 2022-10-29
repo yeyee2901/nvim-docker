@@ -112,7 +112,6 @@ NORMAL_MODE_MAPPING = {
 	{ ["K"] = "<cmd>lua vim.lsp.buf.hover()<CR>" },
 	{ ["<Leader>K"] = "<cmd>lua vim.lsp.buf.signature_help()<CR>" },
 	{ ["gd"] = "<cmd>lua vim.lsp.buf.definition()<CR>" },
-	-- { ['<Leader>lr'] = '<cmd>lua vim.lsp.buf.references()<CR>' },  -- substituted by "Lspsaga lsp_finder"
 	{ ["<Leader>j"] = "<cmd>lua vim.diagnostic.goto_next()<CR>" },
 	{ ["<Leader>k"] = "<cmd>lua vim.diagnostic.goto_prev()<CR>" },
 	{ ["<Leader>r"] = "<cmd>lua vim.lsp.buf.rename()<CR>" },
@@ -124,9 +123,9 @@ NORMAL_MODE_MAPPING = {
 	{ ["<Leader>lc"] = "<cmd>lua vim.lsp.buf.clear_references()<CR>" },
 
 	-- I dont want to do this but oh well
-	{ ["<C-LeftMouse>"] = "<cmd>lua vim.lsp.buf.definition()<CR>" },
-	{ ["<M-LeftMouse>"] = "<C-o>" },
-	{ ["<2-LeftMouse>"] = "<cmd>lua vim.lsp.buf.hover()<CR>" },
+	-- { ["<C-LeftMouse>"] = "<cmd>lua vim.lsp.buf.definition()<CR>" },
+	-- { ["<M-LeftMouse>"] = "<C-o>" },
+	-- { ["<2-LeftMouse>"] = "<cmd>lua vim.lsp.buf.hover()<CR>" },
 
 	-- PLUGIN: LSP saga
 	{ ["<Leader>lp"] = "<cmd>Lspsaga peek_definition<CR>" },
@@ -139,7 +138,7 @@ NORMAL_MODE_MAPPING = {
 	{ ["<Leader>Ga"] = ":GoImport<CR>" },
 	{ ["<Leader>Gm"] = ":GoModTidy<CR>" },
 	{ ["<Leader>GT"] = ":GoTestSum<CR>" },
-	{ ["<Leader>GI"] = ":lua require('telescope').extensions.goimpl.goimpl<CR>" },
+	{ ["<Leader>GI"] = ":Telescope goimpl" },
 
 	-- PLUGIN: nvim dap (debugger)
 	{ ["<Leader>dr"] = '<cmd>lua require("dap").run()<CR>' },
