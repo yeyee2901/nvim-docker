@@ -23,9 +23,12 @@ ARG NPM_INSTALL="\
     typescript-language-server @astrojs/language-server \
     eslint prettier pyright intelephense \
 "
+ARG RUSTUP_COMPONENTS="\
+    rustfmt rust-analyzer \
+"
 ARG NEOVIM_BRANCH="release-0.8"
 ARG NEOVIM_TREESITTER_PARSERS="\
-        go html css javascript typescript \
+        go rust html css javascript typescript \
         tsx astro python json yaml query proto \
         comment bash \
 "
@@ -98,6 +101,8 @@ RUN go install github.com/josharian/impl@latest
 RUN go install github.com/ChimeraCoder/gojson/gojson@latest
 RUN npm i -g --omit=dev ${NPM_INSTALL}
 RUN pip3 install ${PIP_INSTALL}
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
+RUN /root/.cargo/bin/rustup component add ${RUSTUP_COMPONENTS}
 
 
 ###################

@@ -135,6 +135,13 @@ lspconfig.gopls.setup({
     }
 })
 
+-- rustup component add rust-analyzer
+lspconfig.rust_analyzer.setup({
+    cmd = { "rustup", "run", "stable", "rust-analyzer" },
+	capabilities = capabilities_updated,
+	on_attach = custom_on_attach,
+})
+
 -- apt install
 lspconfig.ccls.setup({
 	capabilities = capabilities_updated,

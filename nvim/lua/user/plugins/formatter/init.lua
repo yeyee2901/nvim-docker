@@ -43,6 +43,14 @@ local gofmt = function()
 	}
 end
 
+local rustfmt = function ()
+    return {
+        exe = "rustfmt",
+        stdin = false,
+        args = { vim.api.nvim_buf_get_name(0) },
+    }
+end
+
 local protobuf = function()
 	return {
 		exe = "clang-format",
@@ -68,5 +76,6 @@ require("formatter").setup({
 		python = { autopep },
 		go = { gofmt },
 		proto = { protobuf },
+        rust = { rustfmt }
 	},
 })

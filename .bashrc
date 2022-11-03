@@ -12,5 +12,8 @@ alias vi="nvim"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+# Rust
+. "$HOME/.cargo/env"
+
 # prompt
 export PS1="\u @ nvim-docker in \w "
