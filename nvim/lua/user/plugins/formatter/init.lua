@@ -47,7 +47,7 @@ local rustfmt = function ()
     return {
         exe = "rustfmt",
         stdin = false,
-        args = { vim.api.nvim_buf_get_name(0) },
+        args = { "--edition 2021", vim.api.nvim_buf_get_name(0) },
     }
 end
 

@@ -80,6 +80,13 @@ require("packer").startup(function(use)
         commit = "df010c46af75f3231e5369e60dd39a69fbc9449b",
 	})
 
+    -- RUST utils
+    use ({ 
+        "simrat39/rust-tools.nvim", 
+        lock = true,
+        commit = "99fd123",
+    })
+
 	-- DEBUGGER
 	use({ "mfussenegger/nvim-dap", lock = true, commit = "3d0d7312bb2a8491eb2927504e5cfa6e81b66de4" })
 	use({ "leoluz/nvim-dap-go", lock = true, commit = "c2902bb96c45e872d947d7e174775e652439add4" })
