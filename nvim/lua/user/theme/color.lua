@@ -25,7 +25,7 @@ require("nightfox").setup({
 		},
 
 		modules = {
-			barbar = false,
+			barbar = true,
 			cmp = true,
 			dap_ui = true,
 			diagnostic = { enable = true },

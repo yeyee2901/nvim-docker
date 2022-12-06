@@ -62,8 +62,13 @@ require("packer").startup(function(use)
 	-- BRACKET & SURROUND PLUGIN
 	use({ "tpope/vim-surround", lock = true, commit = "bf3480dc9ae7bea34c78fbba4c65b4548b5b1fea" })
 
-	-- INDENT BLANKLINE
-	use({ "lukas-reineke/indent-blankline.nvim", lock = true, commit = "db7cbcb40cc00fc5d6074d7569fb37197705e7f6" })
+	-- TODO COMMENTS
+    use {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        lock = true,
+        commit = "1b9df57",
+    }
 
 	-- GO utils
 	use({ "ray-x/go.nvim", lock = true, commit = "7720ddcbeac7fee4a2d30079f3c3c9d26a1236b5" })
