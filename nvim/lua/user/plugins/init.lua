@@ -9,7 +9,7 @@ end
 
 require("user.plugins.telescope")
 require("user.plugins.golang-tools")
-require("user.plugins.indent-blankline")
+require("user.plugins.todo-comments")
 require("user.plugins.colortils")
 require("user.plugins.gitsigns")
 require("user.plugins.formatter")
